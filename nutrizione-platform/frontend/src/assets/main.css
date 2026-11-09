@@ -1,0 +1,242 @@
+
+:root {
+    --primary-color: #39845b;
+    --primary-dark: #214d37;
+    --background-color: #f7faf8;
+    --surface-color: #ffffff;
+    --text-color: #26382d;
+    --border-color: #e5eee8;
+}
+
+body {
+    margin: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: Inter, sans-serif;
+}
+
+.p-card {
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 3px 12px rgba(0,0,0,.025);
+}
+
+.p-button:not(.p-button-outlined) {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.p-button:not(.p-button-outlined):hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.dashboard {
+    padding: 1rem;
+}
+
+:root {
+    --nutri-green: #438b68;
+    --nutri-dark: #28583f;
+    --nutri-light: #edf5ef;
+    --nutri-bg: #f7faf8;
+    --nutri-border: #e5ede7;
+    --nutri-text: #304438;
+}
+
+body {
+    margin: 0;
+    background: var(--nutri-bg);
+    color: var(--nutri-text);
+    font-family: Inter, sans-serif;
+}
+
+.admin-layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+.admin-sidebar {
+    width: 260px;
+    background: white;
+    border-right: 1px solid var(--nutri-border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 27px 22px;
+    border-bottom: 1px solid var(--nutri-border);
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    background: var(--nutri-light);
+    color: var(--nutri-green);
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.brand h2 {
+    margin: 0;
+    font-size: 19px;
+    color: var(--nutri-dark);
+}
+
+.brand span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #91a497;
+}
+
+.menu-group {
+    padding: 25px 15px 5px;
+}
+
+.menu-group small {
+    display: block;
+    padding: 0 12px 12px;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: #96a79b;
+    font-weight: 700;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 13px;
+    border: 0;
+    background: transparent;
+    color: #738478;
+    padding: 13px 12px;
+    border-radius: 9px;
+    cursor: pointer;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: var(--nutri-light);
+    color: var(--nutri-dark);
+    font-weight: 600;
+}
+
+.menu-item i {
+    font-size: 17px;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid var(--nutri-border);
+}
+
+.doctor-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.doctor-avatar {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    background: var(--nutri-light);
+    color: var(--nutri-dark);
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.doctor-profile strong,
+.doctor-profile span {
+    display: block;
+}
+
+.doctor-profile span {
+    color: #91a497;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.admin-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-topbar {
+    height: 72px;
+    padding: 0 30px;
+    background: white;
+    border-bottom: 1px solid var(--nutri-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.breadcrumb {
+    color: #829287;
+    font-size: 13px;
+}
+
+.logout-button,
+.mobile-toggle {
+    background: transparent;
+    border: 0;
+    color: var(--nutri-dark);
+    cursor: pointer;
+    padding: 10px;
+}
+
+.page-content {
+    padding: 30px;
+}
+
+.mobile-toggle {
+    display: none;
+}
+
+@media(max-width: 768px) {
+    .admin-sidebar {
+        position: fixed;
+        z-index: 1001;
+        left: -270px;
+        top: 0;
+        bottom: 0;
+        transition: left .25s;
+    }
+
+    .admin-sidebar.sidebar-open {
+        left: 0;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: #0006;
+        z-index: 1000;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .admin-topbar {
+        padding: 0 15px;
+    }
+
+    .page-content {
+        padding: 16px;
+    }
+}
