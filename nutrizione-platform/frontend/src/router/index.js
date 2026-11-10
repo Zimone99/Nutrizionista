@@ -70,7 +70,7 @@ router.beforeEach(async (to) => {
 
     if (to.name === 'login') {
         try {
-            await api.get('/auth/me')
+            await api.get('api/auth/me')
             return { name: 'dashboard' }
         } catch {
             return true
