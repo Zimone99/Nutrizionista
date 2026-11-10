@@ -12,17 +12,17 @@ const app = express()
 app.use(helmet())
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: 'https://nutrizionista-r3yh.onrender.com',
     credentials: true
 }))
 
 app.use(express.json({ limit: '1mb' }))
 app.use(cookieParser())
 
-app.use('/api/auth/login', rateLimit({
-    windowMs: 15 * 60 * 1000,
-    limit: 10
-}))
+api.post('/api/auth/login', {
+    email,
+    password
+})
 
 app.use('/api/auth', require('./routes/auth.routes'))
 
