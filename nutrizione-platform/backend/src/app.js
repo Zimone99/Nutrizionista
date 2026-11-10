@@ -11,10 +11,22 @@ const app = express()
 
 app.use(helmet())
 
+const allowedOrigins = [
+    'http://localhost:5173',
+    'https://nutrizionista-r3yh.onrender.com'
+]
+
 app.use(cors({
-    origin: 'https://nutrizionista-r3yh.onrender.com',
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            return callback(null, true)
+        }
+
+        return callback(new Error('Origine non autorizzata'))
+    },
     credentials: true
 }))
+
 
 app.use(express.json({ limit: '1mb' }))
 app.use(cookieParser())
