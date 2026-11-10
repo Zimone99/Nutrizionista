@@ -74,7 +74,8 @@ async function login(req, res) {
         })
 
     } catch (error) {
-        console.error('Login error:', error.message)
+        console.error('LOGIN ERROR COMPLETO:', error)
+        console.error('STACK:', error.stack)
 
         res.status(500).json({
             message: 'Errore durante il login'
