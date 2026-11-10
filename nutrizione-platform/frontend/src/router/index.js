@@ -58,7 +58,7 @@ const router = createRouter({
 router.beforeEach(async (to) => {
     if (to.meta.requiresAuth) {
         try {
-            await api.get('/auth/me')
+            await api.get('api/auth/me')
             return true
         } catch {
             return {
