@@ -34,9 +34,23 @@ app.use('/api/patients',
     require('./routes/patients.routes')
 )
 
+app.use('/api/appointments',
+    require('./routes/appointments.routes')
+)
+
+app.use('/api/visits', require('./routes/visits.routes'))
+
 app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok' })
+    res.status(200).json({
+        status: 'ok',
+        message: 'Backend Nutrizionista online',
+        timestamp: new Date().toISOString()
+    })
 })
+
+app.use('/api/appointments',
+    require('./routes/appointments.routes')
+)
 
 const PORT = process.env.PORT || 3000
 
