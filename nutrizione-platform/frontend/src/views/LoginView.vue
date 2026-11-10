@@ -1,4 +1,4 @@
-
+```vue
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -18,7 +18,7 @@ const errorMessage = ref('')
 async function login() {
     errorMessage.value = ''
 
-    if (!email.value || !password.value) {
+    if (!email.value.trim() || !password.value) {
         errorMessage.value = 'Inserisci email e password.'
         return
     }
@@ -26,14 +26,18 @@ async function login() {
     loading.value = true
 
     try {
-        await api.post('/auth/login', {
-            email: email.value,
+        const response = await api.post('/api/auth/login', {
+            email: email.value.trim(),
             password: password.value
         })
+
+        console.log('Login effettuato:', response.data)
 
         await router.push('/admin')
 
     } catch (error) {
+        console.error('Errore login:', error)
+
         errorMessage.value =
             error.response?.data?.message ||
             'Impossibile effettuare il login. Verifica il server.'
