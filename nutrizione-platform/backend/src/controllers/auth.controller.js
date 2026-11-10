@@ -58,8 +58,8 @@ async function login(req, res) {
 
         res.cookie('session', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
+            secure: true,
+            sameSite: 'none',
             maxAge: 8 * 60 * 60 * 1000,
             path: '/'
         })
@@ -109,11 +109,11 @@ async function me(req, res) {
 
 function logout(req, res) {
     res.clearCookie('session', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        path: '/'
-    })
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none',
+    path: '/'
+})
 
     res.json({ message: 'Logout effettuato' })
 }
