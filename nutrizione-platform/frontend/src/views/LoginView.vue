@@ -77,7 +77,7 @@ async function login() {
                         id="email"
                         v-model="email"
                         type="email"
-                        placeholder="Inserisci la tua email"
+                        placeholder="demo@nutrizionista.local"
                         class="w-full"
                         autocomplete="username"
                         required
@@ -90,7 +90,7 @@ async function login() {
                     <Password
                         v-model="password"
                         inputId="password"
-                        placeholder="Inserisci la password"
+                        placeholder="NutriDemo2026!Test"
                         class="w-full"
                         inputClass="w-full"
                         :feedback="false"

@@ -109,11 +109,11 @@ async function me(req, res) {
 
 function logout(req, res) {
     res.clearCookie('session', {
-    httpOnly: true,
-    secure: true,
-    sameSite: 'none',
-    path: '/'
-})
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        path: '/'
+    })
 
     res.json({ message: 'Logout effettuato' })
 }
